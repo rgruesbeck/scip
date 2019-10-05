@@ -75,5 +75,42 @@
 ### 1.1.5 The Substitution Model for Procedure Application
 
 	applicative-order evaluation (evaluate the arguments, then apply)
+	substitue values for formal parameters in the procedures
+
+	(f 5)
+	(sum-of-squares (+ a 1) (* a 2))
+	(sum-of-squares (+ 5 1) (* 5 2))
+	(+ (square 6) (square 10))
+	(+ (* 6 6) (* 10 10))
+	(+ 36 100)
+	136
 
 	normal-order evaluation (fully expand, then reduce)
+	expand procedure out to its body
+
+	(f 5)
+	(sum-of-squares (+ 5 1) (* 5 2))
+	(+ (square (+ 5 1)) (square (* 5 2)) )
+	(+ (* (+ 5 1) (+ 5 1)) (* (* 5 2)(* 5 2)) )
+	(+ (* 6 6) (* 10 10))
+	(+ 36 100)
+	136
+
+### 1.1.6 Conditional Expressions and Predicates
+	
+	the case analysis for absolute value
+
+	(define (abs x)
+	  (cond ((> x 0) x)
+		((= x 0) 0)
+		((< x 0) (- x)))
+
+	(cond 	(<p1> <e1>)
+		(<p2> <e2>)
+		(<pn> <en>)
+	)
+
+	cond evalutes each predicate expression pair, moving down the list until
+	a predicate evaluates to true then evaluates its paired expression
+
+
